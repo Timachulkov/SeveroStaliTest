@@ -16,7 +16,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Наименование отдела" Binding="{Binding Path=DepartmentsName}"/>
                 <DataGridTextColumn Header="Колличество задач" Binding="{Binding Path=TaskNum}"/>
-                <DataGridTextColumn Header="Имена работников" Binding="{Binding Path=FilteredName}"/>
+                <DataGridTextColumn Header="↓" />
             </DataGrid.Columns>
 
             <DataGrid.RowDetailsTemplate>
