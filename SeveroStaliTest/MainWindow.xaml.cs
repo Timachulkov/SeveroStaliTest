@@ -37,7 +37,7 @@ namespace SeveroStaliTest
                 if (openFileDialog.ShowDialog() == true)
                 {
                     var filePath = openFileDialog.FileName;
-                    IDataCollector collector = null;
+                    IDataCollector collector;
                     switch (System.IO.Path.GetExtension(filePath))
                     {
                         case ".xlsb":
@@ -46,14 +46,12 @@ namespace SeveroStaliTest
                         default:
                             throw new InvalidOperationException("Не найден возможный тип документа");
                     }
-                    if (collector != null)
-                    {
-                        DataCollection Data = collector.Read(filePath);
-                        Filtration filtre = new Filtration();
-                        FiltredData = filtre.Filter(Data);
 
-                        DemoShowGridData.ItemsSource = FiltredData;
-                    }
+                    DataCollection Data = collector.Read(filePath);
+                    Filtration filtre = new Filtration();
+                    FiltredData = filtre.Filter(Data);
+
+                    DemoShowGridData.ItemsSource = FiltredData;
                 }
             }
             catch (Exception ex)
